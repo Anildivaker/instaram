@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<h1><%= @current_user.name %></h1>
+<%= link_to "logout", log_out_path, data: {"turbo_method": :delete} %>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <table border="2">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= link_to "Show", post %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
